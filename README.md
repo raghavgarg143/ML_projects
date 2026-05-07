@@ -56,8 +56,6 @@ plt.title('Age Distribution')
 plt.show()
 ```
 
-Note: **countplot()** is used to plot categorical values whereas **histplot()** is used to plot continuous values.
-
 ## Text Pre-processing
 
 #### Cleaning Function
@@ -215,10 +213,7 @@ bins = [0, 20, 30, 40, 50, 60, 70]
 labels = ['0-20', '20-30', '30-40', '40-50', '50-60', '60-70']
 df['Age Group'] = pd.cut(df['Customer Age'], bins=bins, labels=labels)
 
-age_sentiment = pd.crosstab(
-								df['Age Group'],
-								df['Sentiment'],
-								normalize='index') * 100
+age_sentiment = pd.crosstab(df['Age Group'],df['Sentiment'],normalize='index') * 100
 			
 #Plotting the age_sentiment								
 age_sentiment.plot(kind='bar', stacked=True, figsize=(10,6))
@@ -227,10 +222,7 @@ plt.title('Sentiment by Age Group')
 plt.show()
 
 #Sentiment by Channel
-channel_sentiment = pd.crosstab(
-										df['Channel'],
-										df['Sentiment'],
-										normalize='index') * 100
+channel_sentiment = pd.crosstab(df['Channel'],df['Sentiment'],normalize='index') * 100
 ```
 
 ## Vectorization
